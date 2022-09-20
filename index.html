@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+    <style>
+
+        .img-1{
+            transform:translate(50px,50px) ;
+        } 
+
+        .img-2{
+            transform: rotate(78deg);
+        }
+
+        .img-3{
+            transform: scale(1.5);
+        }
+
+        .test-card{
+            overflow: hidden;
+        }
+
+        .test-card img{
+            transition: 0.3s;
+        }
+
+        .test-card:hover img{
+            transform: scale(1) rotate(3deg) translateY(20px);
+        }
+
+    </style>
+
+<body class="vh-100">
+    
+    <div class="border border-2 border-primary m-5 h-50">
+        <img src="./img/daniel-lincoln-KquvqfGCWAs-unsplash.jpg" height="200" class="img-1" alt="">
+        <img src="./img/david-kaloczi-1uC1Fsmcve0-unsplash.jpg" height="200" class="img-2" alt="">
+        <img src="./img/david-kaloczi-UJd5QF3Hx0o-unsplash.jpg" height="200" class="img-3" alt="">
+    </div>
+
+
+
+</body>
+</html>

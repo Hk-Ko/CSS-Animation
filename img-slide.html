@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/imagehover.css/css/imagehover.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    
+<style>
+
+    .slide-img{
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        transform: translateX(200px) rotate(-20deg);
+        transition: transform 1s;
+    }
+
+    .show{
+        transform: translateX(0px);
+
+    }
+
+    
+
+</style>
+
+</head>
+<body>
+    
+
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12 col-md-4">
+                <img src="./img/lukas-hellebrand-xsuMhmBtGs4-unsplash.jpg" class="slide-img" height="300" alt="">
+            </div>
+
+            <div class="col-12">
+                <button class="control btn btn-primary" id="show">Show</button>
+                <button class="control btn btn-primary" id="hide">Hide</button>
+                <button class="control btn btn-primary" id="toggle">Toggle</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        let slideImg = document.querySelector(".slide-img");
+        let showBtn = document.getElementById("show");
+        let hideBtn = document.getElementById("hide");
+        let toggleBtn = document.getElementById("toggle");
+
+        showBtn.addEventListener("click",function(){
+            console.log(showBtn)
+            slideImg.style.transform ="translateX(0px)";
+        })
+
+        hideBtn.addEventListener("click",function(){
+            slideImg.style.transform ="translateX(200px) rotate(-20deg)";
+        })
+
+        toggleBtn.addEventListener("click",function(){
+            slideImg.classList.toggle("show");
+        })
+
+    </script>
+</body>
+</html>

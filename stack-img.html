@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./node_modules/imagehover.css/css/imagehover.css">
+
+    <style>
+
+        .stack-img{
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            margin-left:-120px;
+            border: 5px solid white;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            transform: rotate(15deg);
+            transition: 1s;
+        }
+
+        .stack-img:nth-child(1){
+            margin-left: 0;
+        }
+
+        .active{
+            transform: rotate(-15deg) translateY(-50px) translateX(-100px) scale(1.2);
+        
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100 my-5">
+            <div class="col-12">
+                <div class="">
+                    <img class="stack-img" src="./img/jack-dong-SNWK6LvxyuQ-unsplash.jpg" alt="">
+                    <img class="stack-img" src="./img/simon-spring-hRUWGundRuU-unsplash.jpg" alt="">
+                    <img class="stack-img" src="./img/lukas-hellebrand-xsuMhmBtGs4-unsplash.jpg" alt="">
+                    <img class="stack-img" src="./img/fabian-betto-pRJKrk2WRQI-unsplash.jpg" alt="">
+                    <img class="stack-img" src="./img/volodymyr-yarossvit-Rk5jN3jN2WM-unsplash.jpg" alt="">
+                    <img class="stack-img" src="./img/gianluca-giarda-V6SWkL7K0mo-unsplash.jpg" alt="">
+                    <img class="stack-img" src="./img/martin-bennie-eXJOg0GVK0Y-unsplash.jpg" alt="">
+                    <img class="stack-img" src="./img/francesco-ungaro-1Br572gaUqI-unsplash.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <button class="btn btn-primary" id="start">Start</button>
+                <button class="btn btn-primary" id="stop">Stop</button>
+                <button class="btn btn-primary" id="auto">Auto</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let startBtn = document.getElementById("start");
+        let stopBtn = document.getElementById("stop");
+        let autoBtn = document.getElementById("auto");
+        let allStackImages = document.querySelectorAll(".stack-img");
+        let currentStack = 0;
+        function run(){
+            if(currentStack>0){
+                allStackImages[currentStack-1].classList.remove("active");
+            }else{
+                allStackImages[allStackImages.length-1].classList.remove("active");
+            }
+            allStackImages[currentStack].classList.add("active");
+            if(currentStack===allStackImages.length-1){
+                currentStack=0;
+            }else{
+                currentStack++;
+            }
+        }
+
+        let runner;
+
+        startBtn.addEventListener("click", function(){
+            runner = setInterval(run,1000);
+        })
+
+        stopBtn.addEventListener("click", function(){
+            clearInterval(runner)
+        })
+
+        autoBtn.addEventListener("click",function(){
+            run()
+        })
+
+    </script>
+</body>
+</html>
